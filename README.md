@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛡️ SafeSpaceID
 
-## Getting Started
+**Digital Shelter for Online Survivors**  
+SafeSpaceID adalah platform digital yang dirancang untuk memberdayakan perempuan dan kelompok rentan dalam menghadapi Kekerasan Gender Berbasis Online (KGBO). Platform ini menyediakan ruang aman untuk belajar, melapor secara anonim, dan mendapatkan dukungan profesional.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Tentang Proyek
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+SafeSpaceID dikembangkan dalam program **WINIT: Young Entrepreneur x Programmer**, yang mempertemukan pengusaha non-teknis dengan programmer untuk menciptakan solusi digital berbasis kolaborasi. Fokus utama SafeSpaceID adalah menciptakan ekosistem online yang aman dan inklusif melalui:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- 🧠 Edukasi digital tentang KGBO
+- 🫂 Komunitas anonim untuk berbagi cerita
+- 📣 Fitur pelaporan aman yang terhubung dengan lembaga mitra
+- 🤝 Akses ke layanan psikologis dan bantuan hukum (fitur lanjutan)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ✨ Live Demo
 
-To learn more about Next.js, take a look at the following resources:
+🚧 _Coming soon..._
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧰 Tech Stack
 
-## Deploy on Vercel
+**Frontend**  
+- [Next.js](https://nextjs.org/) – React Framework  
+- [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework  
+- [NextAuth.js](https://next-auth.js.org/) – Autentikasi berbasis credential (support anonim)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Backend (planned)**  
+- [Express.js](https://expressjs.com/) – Backend API ringan  
+- [PostgreSQL](https://www.postgresql.org/) – Relasional database  
+- [Cloudinary](https://cloudinary.com/) / [Firebase Storage](https://firebase.google.com/products/storage) – Penyimpanan media (bukti laporan, gambar)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🗂️ Struktur Folder (Frontend)
+
+safespaceid-client/
+├── pages/ # Halaman utama
+│ ├── index.js # Beranda
+│ ├── komunitas.js # Forum anonim
+│ ├── edukasi/ # Artikel & konten edukasi
+│ │ └── [slug].js # Detail konten
+│ ├── lapor.js # Form pelaporan
+│ ├── tentang.js # Tentang platform
+│ └── auth/ # Halaman login
+│ └── signin.js
+├── components/ # Komponen UI reusable
+│ ├── Navbar.js
+│ ├── Layout.js
+│ └── ...
+├── public/ # Aset publik (logo, gambar)
+├── styles/ # Tailwind CSS & global style
+├── .env.local # Variabel lingkungan
+└── README.md
+
