@@ -39,7 +39,7 @@ export default function PostInputBar({ onOpenModal }) {
         />
         <button
           onClick={onOpenModal}
-          className="absolute right-3 top-1/2 -translate-y-1/2 bg-blue-600 hover:bg-blue-700 text-white p-1.5 rounded-md"
+          className="cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 bg-blue-600 hover:bg-blue-700 text-white p-1.5 rounded-md"
         >
           <Plus size={18} />
         </button>

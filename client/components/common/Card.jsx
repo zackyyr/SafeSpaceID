@@ -18,12 +18,13 @@ const ProductCard = ({
       {/* Gambar + Tombol Wishlist */}
       <div className="relative">
         <Image
-          src="/book.svg"
+          src={product.cover || "/products/default.svg"}
           alt={product.title}
           width={500}
           height={300}
           className="rounded-lg object-cover w-full h-[180px]"
         />
+
         <button
           onClick={(e) => {
             e.stopPropagation(); // Hindari buka modal saat tombol diklik

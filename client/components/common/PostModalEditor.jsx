@@ -63,13 +63,13 @@ export default function PostModalEditor({ onClose }) {
     <div className="fixed inset-0 z-50 flex justify-center items-start pt-20 px-4 backdrop-blur-sm bg-black/10">
       <div className="bg-white w-full max-w-2xl rounded-2xl shadow-xl">
         {/* Header */}
-        <div className="relative flex items-center justify-between px-6 py-4 border-b">
+        <div className="relative flex items-center justify-between px-6 py-4">
           <div className="flex-1 text-center">
             <h2 className="text-base sm:text-lg font-semibold">Postingan Baru</h2>
           </div>
           <button
             onClick={onClose}
-            className="absolute right-6 top-4 p-1 text-gray-600 hover:text-black"
+            className="cursor-pointer absolute right-6 top-4 p-1 text-gray-600 hover:text-black"
           >
             <X size={20} />
           </button>

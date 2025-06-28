@@ -53,7 +53,7 @@ const WishlistSidebar = ({ products, wishlist, onClose, onClickProduct }) => {
           <h2 className="text-lg font-bold">Wishlist</h2>
           <button
             onClick={onClose}
-            className="text-gray-500 hover:text-black transition"
+            className="cursor-pointer text-gray-500 hover:text-black transition"
           >
             <X className="w-5 h-5" />
           </button>

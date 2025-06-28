@@ -1,5 +1,8 @@
 "use client";
 import { Bell, User, Search } from "lucide-react";
+import UserDropdown from "./UserDropdown";
+import NotificationDropdown from "./NotificationDropdown";
+
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -62,11 +65,9 @@ const NavbarDashboard = () => {
       {/* Icons */}
       <div className="flex items-center gap-3 ml-6">
         <button className="w-9 h-9 flex items-center justify-center bg-[#F9F9F9] rounded-full">
-          <Bell className="w-4 h-4 text-blue-600" />
+          <NotificationDropdown />
         </button>
-        <button className="w-9 h-9 flex items-center justify-center bg-[#F9F9F9] rounded-full">
-          <User className="w-4 h-4 text-gray-700" />
-        </button>
+        <UserDropdown username="Kangaroo12" />
       </div>
     </header>
   );

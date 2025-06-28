@@ -16,13 +16,17 @@ import {
 const SidebarCommunity = () => {
   const pathname = usePathname();
 
-  const isActive = (href) =>
-    pathname === href || pathname.startsWith(href + "/");
+    const isActive = (href) => {
+      // Khusus untuk halaman beranda, hanya cocok jika exact path
+      if (href === "/dashboard/komunitas") return pathname === href;
+      return pathname === href || pathname.startsWith(href + "/");
+    };
+
 
   const menuMain = [
     { name: "Beranda", href: "/dashboard/komunitas", icon: <Home size={16} /> },
-    { name: "Post Anda", href: "/coming-soon", icon: <Send size={16} /> },
-    { name: "Tersimpan", href: "/coming-soon", icon: <Bookmark size={16} /> },
+    { name: "Post Anda", href: "/dashboard/komunitas/PostAnda", icon: <Send size={16} /> },
+    { name: "Tersimpan", href: "/dashboard/komunitas/Tersimpan", icon: <Bookmark size={16} /> },
   ];
 
   const menuSupport = [

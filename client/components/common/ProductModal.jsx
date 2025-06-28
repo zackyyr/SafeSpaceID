@@ -45,12 +45,13 @@ const ProductModal = ({ product, onClose }) => {
 
             {/* Kiri: Gambar */}
             <div className="w-1/2 bg-gray-100 relative">
-              <Image
-                src="/book.svg"
-                alt={product.title}
-                fill
-                className="object-cover"
-              />
+            <Image
+              src={product.cover || "/products/default.svg"}
+              alt={product.title}
+              fill
+              className="object-cover"
+            />
+
             </div>
 
             {/* Kanan: Konten */}
@@ -88,9 +89,14 @@ const ProductModal = ({ product, onClose }) => {
                       ? "Gratis"
                       : `Rp. ${product.price.toLocaleString("id-ID")}`}
                   </div>
-                  <button className="cursor-pointer bg-[#2875D4] text-white text-sm px-5 py-2 rounded-full hover:bg-blue-700 transition">
-                    Beli Sekarang
-                  </button>
+                  <a
+                    href={product.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cursor-pointer bg-[#2875D4] text-white text-sm px-5 py-2 rounded-full hover:bg-blue-700 transition"
+                  >
+                    {product.price === 0 ? "Unduh Gratis" : "Beli Sekarang"}
+                  </a>
                 </div>
               </div>
             </div>

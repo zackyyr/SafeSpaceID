@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useParams } from "next/navigation";
 import {
-  ArrowLeft,
   Eye,
   MessageCircle,
   Send,
@@ -11,15 +11,17 @@ import {
   MoreVertical,
   X,
 } from "lucide-react";
+
 import detailPosts from "@/app/dashboard/data/DetailPost.json";
 import PostActions from "@/components/common/PostActions";
 import BackButton from "@/components/common/BackButton";
 
-export default function PostDetailPage({ params }) {
+export default function PostDetailPage() {
+  const params = useParams();
   const post = detailPosts.find((p) => p.slug === params.slug);
   const [fullscreenImage, setFullscreenImage] = useState(null);
 
-  if (!post) return <div>Post tidak ditemukan.</div>;
+  if (!post) return <div className="text-center py-10">Post tidak ditemukan.</div>;
 
   return (
     <div className="max-w-4xl mx-auto px-4 pt-6 pb-16 relative">
@@ -29,7 +31,11 @@ export default function PostDetailPage({ params }) {
         {/* Header */}
         <div className="flex justify-between items-center text-sm text-gray-500 mb-2">
           <div className="flex items-center gap-2">
-            <img src="/img/avatar-placeholder.png" alt="anon" className="w-8 h-8 rounded-full bg-gray-200" />
+            <img
+              src="/img/avatar-placeholder.png"
+              alt="anon"
+              className="w-8 h-8 rounded-full bg-gray-200"
+            />
             <span className="font-semibold">{post.author}</span>
             <span className="text-xs">{post.time}</span>
           </div>
@@ -42,7 +48,11 @@ export default function PostDetailPage({ params }) {
 
         {/* Gambar Post */}
         {post.image?.length > 0 && (
-          <div className={`grid gap-2 mb-4 ${post.image.length > 1 ? "grid-cols-2" : "grid-cols-1"}`}>
+          <div
+            className={`grid gap-2 mb-4 ${
+              post.image.length > 1 ? "grid-cols-2" : "grid-cols-1"
+            }`}
+          >
             {post.image.map((img, index) => (
               <img
                 key={index}

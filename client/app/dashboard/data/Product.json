@@ -10,6 +10,8 @@
     "dateCreated": "2025-05-08",
     "isPopular": false,
     "isRecommended": true,
+    "link": "https://lynk.id/",
+    "cover": "/products/default.svg",
     "description": [
     "<h3>Apa itu InnerVoice?</h3>",
     "<p>InnerVoice adalah e-book yang didesain untuk kamu yang sedang mencari makna dan pemahaman atas luka batin yang tersembunyi. Buku ini menjadi teman refleksi, bukan untuk menghakimi tapi menemani proses healingmu.</p>",
@@ -27,11 +29,13 @@
     "price": 0,
     "originalPrice": 35000,
     "category": "Poster/Printable",
-    "format": "Google Docs",
+    "format": "PDF",
     "dateCreated": "2025-06-13",
     "isPopular": false,
     "isRecommended": false,
- "description": [
+    "link": "https://lynk.id/safespaceid/gv7o2zgmgj6j",
+    "cover": "/products/e-book.png",
+    "description": [
       "<h3>Tentang Produk</h3>",
       "<p>Poster printable ini adalah pengingat kecil untuk kamu yang sering merasa bersalah saat berkata tidak. Dibuat untuk kamu yang sedang belajar menegaskan batas tanpa merasa jahat atau egois.</p>",
       "<h3>Apa yang Kamu Dapatkan?</h3>",
@@ -50,7 +54,9 @@
     "dateCreated": "2025-05-21",
     "isPopular": true,
     "isRecommended": true,
-      "description": [
+    "link": "https://lynk.id/",
+    "cover": "/products/default.svg",
+    "description": [
       "<h3>Kenapa Self-Compassion Itu Penting?</h3>",
       "<p>Kita sering keras pada diri sendiri, padahal kita juga butuh pelukan dari dalam. Jurnal ini membimbing kamu mengenal dan mempraktikkan self-compassion secara bertahap.</p>",
       "<h3>Apa Isi Jurnal Ini?</h3>",
@@ -69,6 +75,8 @@
     "dateCreated": "2025-06-03",
     "isPopular": true,
     "isRecommended": false,
+    "link": "https://lynk.id/",
+    "cover": "/products/default.svg",
     "description": [
       "<h3>Lindungi Dirimu di Dunia Maya</h3>",
       "<p>Dunia digital kadang melelahkan. Produk ini membantumu menjaga kesehatan mental dan keamanan personal dalam bersosial media.</p>",
@@ -87,6 +95,8 @@
     "dateCreated": "2025-06-01",
     "isPopular": false,
     "isRecommended": true,
+    "link": "https://lynk.id/",
+    "cover": "/products/default.svg",
     "description": [
       "<h3>Saatnya Berhenti Menanggung Beban Orang Lain</h3>",
       "<p>Dalam hidup, sering kali kita membawa rasa bersalah atas hal yang bukan tanggung jawab kita. Buku ini membantu kamu melepaskannya dengan sadar dan sehat.</p>",
@@ -105,6 +115,8 @@
     "dateCreated": "2025-05-16",
     "isPopular": false,
     "isRecommended": false,
+    "link": "https://lynk.id/",
+    "cover": "/products/default.svg",
     "description": [
       "<h3>Suarakan Perasaanmu, Meski Dunia Sibuk</h3>",
       "<p>Jurnal harian ini adalah wadah untuk kamu yang sering merasa tidak didengar. Kamu akan belajar menyalurkan perasaan lewat tulisan.</p>",
@@ -123,6 +135,8 @@
     "dateCreated": "2025-05-26",
     "isPopular": false,
     "isRecommended": false,
+    "link": "https://lynk.id/",
+    "cover": "/products/default.svg",
      "description": [
       "<h3>Lepaskan Rasa Bersalah yang Tak Perlu</h3>",
       "<p>Printable poster ini adalah pengingat harian bahwa kamu berhak memaafkan diri sendiri. Visual dan teksnya dirancang untuk memperkuat rasa aman dan percaya diri.</p>",
@@ -140,6 +154,8 @@
     "dateCreated": "2025-06-09",
     "isPopular": true,
     "isRecommended": true,
+    "link": "https://lynk.id/",
+    "cover": "/products/default.svg",
      "description": [
       "<h3>Healing Punya Ritme Masing-Masing</h3>",
       "<p>Produk ini ingin mengajakmu memahami bahwa tidak ada standar dalam penyembuhan luka. Semua orang punya waktunya sendiri.</p>",
