@@ -16,19 +16,19 @@ import {
 const SidebarCommunity = () => {
   const pathname = usePathname();
 
-  // Fungsi untuk menentukan apakah menu sedang aktif
-  const isActive = (href) => pathname === href || pathname.startsWith(href + "/");
+  const isActive = (href) =>
+    pathname === href || pathname.startsWith(href + "/");
 
   const menuMain = [
     { name: "Beranda", href: "/dashboard/komunitas", icon: <Home size={16} /> },
-    { name: "Post Anda", href: "/dashboard/komunitas/post-anda", icon: <Send size={16} /> },
-    { name: "Tersimpan", href: "/dashboard/komunitas/tersimpan", icon: <Bookmark size={16} /> },
+    { name: "Post Anda", href: "/coming-soon", icon: <Send size={16} /> },
+    { name: "Tersimpan", href: "/coming-soon", icon: <Bookmark size={16} /> },
   ];
 
   const menuSupport = [
-    { name: "Notifikasi", href: "/dashboard/komunitas/notifikasi", icon: <Heart size={16} /> },
-    { name: "Balasan", href: "/dashboard/komunitas/balasan", icon: <Reply size={16} /> },
-    { name: "Panduan", href: "/dashboard/komunitas/panduan", icon: <FileText size={16} /> },
+    { name: "Notifikasi", href: "/coming-soon", icon: <Heart size={16} /> },
+    { name: "Balasan", href: "/coming-soon", icon: <Reply size={16} /> },
+    { name: "Panduan", href: "/coming-soon", icon: <FileText size={16} /> },
   ];
 
   const renderMenu = (items) => (
@@ -54,7 +54,7 @@ const SidebarCommunity = () => {
   );
 
   return (
-    <aside className="w-[250px] hidden lg:flex flex-col bg-[#f2f6fa] min-h-screen px-6 py-8 text-sm text-gray-700">
+    <aside className="w-full h-screen flex flex-col bg-[#f2f6fa] px-6 py-9 text-sm text-gray-700">
       {/* Main Navigation */}
       <div className="mb-10">
         <h3 className="text-xs font-medium text-gray-500 mb-4">Main Navigation</h3>
@@ -68,7 +68,7 @@ const SidebarCommunity = () => {
       </div>
 
       {/* Tentang KGBO */}
-      <div className="mt-auto">
+      <div className="mt-auto pt-6 border-t border-gray-200">
         <Link
           href="/komunitas/tentang"
           className={`flex items-center gap-2 text-xs hover:underline ${
