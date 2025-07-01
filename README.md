@@ -18,7 +18,9 @@ SafeSpaceID dikembangkan dalam program **WINIT: Young Entrepreneur x Programmer*
 
 ## ✨ Live Demo
 
-🚧 _Coming soon..._
+🚧 [Demo Video](https://drive.google.com/file/d/1edKXyIl3DUWR4pVuBHTG0190btFKkMqv/view)
+
+:rocket: [Deploy](https://safespaceid.vercel.app/)
 
 ---
 
