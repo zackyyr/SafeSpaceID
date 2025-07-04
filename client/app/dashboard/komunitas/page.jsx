@@ -1,44 +1,63 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PostList from "@/components/common/PostList";
 import PostInputBar from "@/components/common/PostInputBar";
 import PostModalEditor from "@/components/common/PostModalEditor";
-
-const dummyPosts = [
-  {
-    id: 1,
-    author: "Kangaroo12",
-    time: "4h",
-    title: "Aku gak tahu ini salah siapa, tapi aku capek disalahin terus.",
-    content:
-      "Kadang yang kita butuhin bukan solusi, cuma tempat buat didengerin. Hari ini aku ngerasa semuanya nyalahin aku, bahkan saat aku cuma diem.",
-    views: "101k",
-    comments: "76",
-    image: ["/img/dummy.png", "/img/dummy.png"],
-  },
-  {
-    id: 2,
-    author: "iH8Nuggetss",
-    time: "2h",
-    title:
-      "Setelah aku speak up soal pelecehan online, banyak yang bilang aku cari perhatian.",
-    content:
-      "Awalnya aku kira speak up itu langkah berani—ternyata yang datang justru hujatan. Tapi aku tetap yakin aku gak salah.",
-    views: "2.8k",
-    comments: "103",
-    image: ["/img/dummy.png"],
-  },
-];
+import LoginModal from "@/components/auth/LoginModal";
+import useAuth from "@/app/hooks/useAuth";
+import defaultPosts from "@/app/data/DetailPost.json";
 
 const Komunitas = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false); // ⬅️ State modal login
+  const [addedPosts, setAddedPosts] = useState([]);
+
+  const { isLoggedIn } = useAuth(); // ⬅️ Cek status login
+
+  const handleNewPost = (newPost) => {
+    setAddedPosts((prev) => {
+      const updatedPosts = [newPost, ...prev];
+      localStorage.setItem("userPosts", JSON.stringify(updatedPosts));
+      return updatedPosts;
+    });
+  };
+
+  const handleOpenModal = () => {
+    if (isLoggedIn) {
+      setShowModal(true);
+    } else {
+      setShowLoginModal(true); // ⬅️ Tampilkan modal login jika belum login
+    }
+  };
+useEffect(() => {
+  const savedPosts = localStorage.getItem("userPosts");
+  if (savedPosts) {
+    setAddedPosts(JSON.parse(savedPosts));
+  }
+}, []);
+  // Ambil post default
+  const filteredDefaults = defaultPosts.filter(
+    (post) => post.id === 1 || post.id === 2
+  );
+
+  const allPosts = [...addedPosts, ...filteredDefaults];
 
   return (
     <>
-      <PostInputBar onOpenModal={() => setShowModal(true)} />
-      <PostList posts={dummyPosts} />
-      {showModal && <PostModalEditor onClose={() => setShowModal(false)} />}
+      <PostInputBar onOpenModal={handleOpenModal} />
+      <PostList posts={allPosts} />
+
+      {showModal && (
+        <PostModalEditor
+          onClose={() => setShowModal(false)}
+          onSubmit={handleNewPost}
+        />
+      )}
+
+      {showLoginModal && (
+        <LoginModal isOpen={showLoginModal} onClose={() => setShowLoginModal(false)} />
+      )}
     </>
   );
 };

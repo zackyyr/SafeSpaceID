@@ -2,14 +2,15 @@
 
 import { useState, useRef, useEffect } from "react";
 import { User, LogOut, Settings } from "lucide-react";
-import clsx from "clsx";
 import ConfirmLogoutModal from "@/components/common/ConfirmLogoutModal";
 
-const UserDropdown = ({ username = "AnonUser123" }) => {
+const UserDropdown = () => {
+  const [username, setUsername] = useState("AnonUser123");
   const [open, setOpen] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const dropdownRef = useRef(null);
 
+  // Tutup dropdown kalau klik di luar
   useEffect(() => {
     const handler = (e) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -20,11 +21,34 @@ const UserDropdown = ({ username = "AnonUser123" }) => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  const handleLogout = () => {
-    // Placeholder: replace with real logout logic
-    alert("Berhasil logout!");
-    setShowLogoutModal(false);
-    setOpen(false);
+  // Fetch user dari /api/auth/me
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await fetch("/api/auth/me");
+        const data = await res.json();
+        console.log("🧾 ME RESPONSE:", data);
+
+        if (data?.user?.username) {
+          setUsername(data.user.username);
+        }
+      } catch (err) {
+        console.error("Gagal ambil user:", err);
+      }
+    };
+    fetchUser();
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/auth/logout", { method: "POST" });
+      window.location.href = "/";
+    } catch (err) {
+      console.error("Logout error:", err);
+    } finally {
+      setShowLogoutModal(false);
+      setOpen(false);
+    }
   };
 
   return (

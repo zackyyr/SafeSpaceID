@@ -1,35 +1,33 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Plus } from "lucide-react";
 
-const filters = ["Terbaru", "Populer", "Paling Banyak Dibalas"];
-
 export default function PostInputBar({ onOpenModal }) {
-  const [selectedFilter, setSelectedFilter] = useState("Terbaru");
+  const greetings = [
+    "👋 Hai! Ceritain aja di sini, semuanya aman 😊",
+    "💙 Kamu nggak sendiri kok, yuk cerita sedikit hari ini",
+    "🧠 Gimana perasaan kamu akhir-akhir ini?",
+    "✨ Yuk ngobrol bareng, kita di sini buat dengerin",
+    "Apa pun yang kamu alami, kamu boleh share di sini",
+  ];
+
+  const [randomGreeting, setRandomGreeting] = useState("");
+
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * greetings.length);
+    setRandomGreeting(greetings[randomIndex]);
+  }, []);
 
   return (
-    <div className=" rounded-xl space-y-4">
-      {/* Filter */}
-      <div className="flex justify-between items-center text-sm text-gray-600">
-        <div className="flex items-center gap-2">
-          <span className="text-gray-500">Filter :</span>
-          <select
-            value={selectedFilter}
-            onChange={(e) => setSelectedFilter(e.target.value)}
-            className="px-2 py-1 border border-gray-300 rounded-md text-sm"
-          >
-            {filters.map((filter) => (
-              <option key={filter} value={filter}>
-                {filter}
-              </option>
-            ))}
-          </select>
-        </div>
+    <div className="rounded-xl space-y-4">
+      {/* Greeting Message */}
+      <div className="text-2xl text-center text-black">
+        <h3>{randomGreeting}</h3>  
       </div>
 
       {/* Input field */}
-      <div className="relative">
+      <div className="relative mt-10">
         <input
           type="text"
           placeholder="Apa yang kamu rasakan sekarang?"

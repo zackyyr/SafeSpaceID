@@ -64,7 +64,7 @@ export default function Contact() {
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="min-h-screen bg-[#f3f8fc] py-10"
+      className="min-h-scree py-10"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         <h1 className="text-3xl sm:text-4xl font-bold text-center mb-2">Get In Touch</h1>
@@ -128,12 +128,18 @@ export default function Contact() {
           </div>
 
           {/* Form */}
-          <form className="space-y-4 p-6 rounded-xl">
+          <form
+            action="https://formspree.io/f/meokvpzg"
+            method="POST"
+            className="space-y-4 p-6 rounded-xl"
+          >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-light pb-2">Nama Depan</label>
                 <input
                   type="text"
+                  name="first_name"
+                  required
                   placeholder="Nama depan"
                   className="w-full px-4 py-2 rounded-2xl bg-white focus:outline-none placeholder:text-gray-400"
                 />
@@ -142,34 +148,54 @@ export default function Contact() {
                 <label className="block text-sm font-light pb-2">Nama Belakang</label>
                 <input
                   type="text"
+                  name="last_name"
+                  required
                   placeholder="Nama Belakang"
                   className="w-full px-4 py-2 rounded-2xl bg-white focus:outline-none placeholder:text-gray-400"
                 />
               </div>
             </div>
+
+            <div>
+              <label className="block text-sm font-light pb-2">Email</label>
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="Alamat email aktif"
+                className="w-full px-4 py-2 rounded-2xl bg-white focus:outline-none placeholder:text-gray-400"
+              />
+            </div>
+
             <div>
               <label className="block text-sm font-light pb-2">Perihal</label>
               <input
                 type="text"
-                placeholder="Subyek"
+                name="subject"
+                placeholder="Subyek pesan"
                 className="w-full px-4 py-2 rounded-2xl bg-white focus:outline-none placeholder:text-gray-400"
               />
             </div>
+
             <div>
               <label className="block text-sm font-light pb-2">Pesan</label>
               <textarea
+                name="message"
+                required
                 rows={6}
                 placeholder="Tulis pesan/keluhan kamu"
                 className="w-full px-4 py-2 rounded-2xl bg-white focus:outline-none placeholder:text-gray-400"
               />
             </div>
+
             <button
               type="submit"
               className="w-full py-3 bg-[#2875D4] text-white rounded-2xl hover:bg-blue-700 transition"
             >
-              Submit
+              Kirim Pesan
             </button>
           </form>
+
         </div>
       </div>
     </motion.div>

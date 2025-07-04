@@ -1,9 +1,11 @@
 "use client";
+
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import CardArticle from "@/components/common/CardArticle";
 import MenuCategories from "@/components/common/MenuCategories";
 import Pagination from "@/components/common/Pagination";
-import articles from "@/app/dashboard/data/Articles.json";
+import articles from "@/app/data/Articles.json";
 
 const POSTS_PER_PAGE = 9;
 
@@ -12,7 +14,6 @@ const Edukasi = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState(null);
 
-  // Filter berdasarkan search dan kategori
   const filteredArticles = articles.filter((article) => {
     const matchSearch = article.title.toLowerCase().includes(searchQuery.toLowerCase());
     const matchCategory = activeCategory
@@ -26,15 +27,22 @@ const Edukasi = () => {
   const paginatedArticles = filteredArticles.slice(startIndex, startIndex + POSTS_PER_PAGE);
 
   return (
-    <div className="bg-[#F0F5F9] min-h-screen py-16 px-6 md:px-20 flex items-start gap-10">
-      <MenuCategories
-        onSearchChange={setSearchQuery}
-        onCategoryChange={setActiveCategory}
-        activeCategory={activeCategory}
-      />
-      <div className="flex gap-10 items-start">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
+      <div className="min-h-screen flex flex-col lg:flex-row gap-10 px-4 md:px-10 py-10">
+        {/* Sidebar Sticky */}
+        <MenuCategories
+          onSearchChange={setSearchQuery}
+          onCategoryChange={setActiveCategory}
+          activeCategory={activeCategory}
+        />
+
+        {/* Main Content */}
         <main className="flex-1">
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {paginatedArticles.map((post) => (
               <CardArticle key={post.id} post={post} />
             ))}
@@ -47,7 +55,7 @@ const Edukasi = () => {
           />
         </main>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

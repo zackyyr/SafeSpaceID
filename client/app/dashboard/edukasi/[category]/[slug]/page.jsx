@@ -2,7 +2,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
-import articles from '@/app/dashboard/data/Articles.json';
+import articles from '@/app/data/Articles.json';
 import ArticleMeta from '@/components/common/ArticleMeta';
 
 const ArticleDetailPage = () => {
@@ -18,7 +18,7 @@ const ArticleDetailPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white text-black dark:bg-gray-950 dark:text-gray-100">
+    <div className="min-h-screen bg-none text-black dark:bg-gray-950 dark:text-gray-100 ">
       {/* Banner Image */}
       <div className="relative md:h-[450px] lg:h-[500px]">
         <Image
@@ -26,9 +26,9 @@ const ArticleDetailPage = () => {
           alt={article.title}
           fill
           priority
-          className="object-cover object-center"
+          className="object-cover object-center rounded-4xl"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/50 to-black/80 p-6 md:p-10 flex flex-col justify-between text-white">
+        <div className="absolute  rounded-4xl inset-0 bg-gradient-to-b from-black/10 via-black/50 to-black/80 p-6 md:p-10 flex flex-col justify-between text-white">
           <div>
             <p className="text-xs uppercase tracking-wide opacity-80">Newest Blog • 4 Min</p>
             <h1 className="text-3xl md:text-5xl font-bold max-w-4xl leading-tight drop-shadow-md">

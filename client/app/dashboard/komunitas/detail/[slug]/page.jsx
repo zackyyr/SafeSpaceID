@@ -8,18 +8,22 @@ import {
   Send,
   Heart,
   Bookmark,
+  BookmarkCheck, // ✅ Tambahin ini
   MoreVertical,
   X,
 } from "lucide-react";
 
-import detailPosts from "@/app/dashboard/data/DetailPost.json";
+import detailPosts from "@/app/data/DetailPost.json";
 import PostActions from "@/components/common/PostActions";
 import BackButton from "@/components/common/BackButton";
+import CommentSection from "@/components/common/CommentSection";
 
 export default function PostDetailPage() {
   const params = useParams();
   const post = detailPosts.find((p) => p.slug === params.slug);
   const [fullscreenImage, setFullscreenImage] = useState(null);
+  const [isSaved, setIsSaved] = useState(false);
+
 
   if (!post) return <div className="text-center py-10">Post tidak ditemukan.</div>;
 
@@ -49,7 +53,7 @@ export default function PostDetailPage() {
         {/* Gambar Post */}
         {post.image?.length > 0 && (
           <div
-            className={`grid gap-2 mb-4 ${
+            className={` grid gap-2 mb-4 ${
               post.image.length > 1 ? "grid-cols-2" : "grid-cols-1"
             }`}
           >
@@ -72,7 +76,24 @@ export default function PostDetailPage() {
           ))}
         </div>
 
-        <PostActions views={post.views} comments={post.comments} />
+        <div className="flex items-center gap-6 text-sm text-gray-600 mb-6">
+          <div className="flex items-center gap-1">
+            <Eye size={16} />
+            {post.views} tayangan
+          </div>
+
+          <button
+            onClick={() => setIsSaved(!isSaved)}
+            className={`cursor pointer flex items-center gap-1 transition ${
+              isSaved ? "text-pink-500 font-medium" : "hover:text-pink-500"
+            }`}
+          >
+            {isSaved ? <BookmarkCheck size={16} /> : <Bookmark size={16} />}
+            {isSaved ? "Disimpan" : "Simpan"}
+          </button>
+        </div>
+
+        <CommentSection initialComments={post.commentsData || []} />
       </div>
 
       {/* Modal Gambar Fullscreen */}

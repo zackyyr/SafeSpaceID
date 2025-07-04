@@ -1,7 +1,8 @@
 "use client";
+
 import React from "react";
 import { Search } from "lucide-react";
-import articles from "@/app/dashboard/data/Articles.json";
+import articles from "@/app/data/Articles.json";
 
 const dummyCategories = [
   "Pelecehan Online",
@@ -12,12 +13,12 @@ const dummyCategories = [
   "Advokasi Gender",
 ];
 
-const topPosts = articles.filter(article => article.topPost);
+const topPosts = articles.filter((article) => article.topPost);
 
 const MenuCategories = ({ onSearchChange, onCategoryChange, activeCategory }) => {
   return (
-    <aside className="w-full max-w-[300px] hidden lg:block">
-      <div className="sticky top-20 space-y-10">
+    <aside className="w-full max-w-[300px]">
+      <div className="sticky top-16 space-y-10">
         {/* Search */}
         <div className="relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -36,7 +37,9 @@ const MenuCategories = ({ onSearchChange, onCategoryChange, activeCategory }) =>
             {dummyCategories.map((cat, i) => (
               <li
                 key={i}
-                className={`py-2 hover:underline cursor-pointer ${activeCategory === cat ? "font-bold text-blue-600" : ""}`}
+                className={`py-2 hover:underline cursor-pointer ${
+                  activeCategory === cat ? "font-bold text-blue-600" : ""
+                }`}
                 onClick={() => onCategoryChange(cat === activeCategory ? null : cat)}
               >
                 {cat}

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import products from "../data/Product.json";
+import products from "@/app/data/Product.json";
 
 import ProductSidebarFilter from "@/components/common/SidebarFilter";
 import ProductModal from "@/components/common/ProductModal";
@@ -58,7 +58,7 @@ const Shop = () => {
 
   return (
     <motion.div
-      className="min-h-screen bg-[#f4f9fd] px-4 sm:px-10 py-10"
+      className="min-h-screen px-4 sm:px-10 py-10"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -84,7 +84,8 @@ const Shop = () => {
           </div>
 
           {/* Product Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
             {filteredProducts.map((product, index) => (
               <ProductCard
                 key={index}

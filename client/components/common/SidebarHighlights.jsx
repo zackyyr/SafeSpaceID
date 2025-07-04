@@ -28,7 +28,7 @@ const popularArticles = [
 
 export default function SidebarHighlights() {
   return (
-    <div className="space-y-5 max-w-[380px] w-full">
+    <div className="relative z-0 space-y-5 max-w-[380px] w-full">
       {/* Sedang Banyak Dibaca */}
       <div className="bg-white px-6 py-3 rounded-xl space-y-2 shadow-sm">
         <h3 className="text-[16px] font-medium text-gray-800">Sedang Banyak Dibaca</h3>

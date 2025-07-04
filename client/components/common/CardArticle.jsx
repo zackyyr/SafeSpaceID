@@ -10,7 +10,7 @@ const CardArticle = ({ post }) => {
     <Link href={`/dashboard/edukasi/${mainCategory}/${post.slug}`}>
       <article className="rounded-xl overflow-hidden transition hover:shadow-md bg-white cursor-pointer">
         {/* Gambar */}
-        <div className="relative w-full h-56 mb-5">
+        <div className="relative w-full h-50 mb-5">
           <Image
             src={post.image}
             alt={post.title}
